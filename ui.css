@@ -428,3 +428,8 @@
 @media (prefers-reduced-motion: reduce) {
   .gui *, .gui *::before, .gui *::after { animation: none !important; transition: none !important; }
 }
+
+/* drawn-icon versions of the mystery item and the badge */
+.card__art > svg.art-mystery { height: 118%; width: auto; rotate: 0deg; max-width: none; filter: brightness(0) drop-shadow(0 0 1px rgba(255,255,255,.35)); opacity: .9; }
+.detail__img.is-svg.is-mystery { filter: brightness(0) drop-shadow(0 0 2px rgba(255,255,255,.45)); }
+.shop__badge svg { position: absolute; inset: 8%; width: 84%; height: 84%; filter: drop-shadow(0 2px 0 rgba(13,16,36,.4)); }

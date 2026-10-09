@@ -5,8 +5,8 @@
 
   /* =========================== SHOP =========================== */
   const ITEMS = [
-    { id: "ruby", name: "Ruby Longsword", type: "weapon", rarity: "legendary", price: 1200, art: "sword",
-      desc: "A longsword with rubies set in the guard and pommel.",
+    { id: "inferno", name: "Inferno Blade", type: "weapon", rarity: "legendary", price: 1200, art: "i-greatsword",
+      desc: "A blazing blade that leaves a trail of fire.",
       stats: [["Damage", 92], ["Speed", 64], ["Range", 78]] },
     { id: "iron", name: "Iron Sword", type: "weapon", rarity: "common", state: "equipped", art: "i-sword",
       desc: "Reliable and well balanced. Every hero starts here.",
@@ -14,13 +14,13 @@
     { id: "bow", name: "Hunter Bow", type: "weapon", rarity: "rare", price: 450, art: "i-bow",
       desc: "Hits from far away. Hold to charge a stronger shot.",
       stats: [["Damage", 54], ["Speed", 48], ["Range", 96]] },
-    { id: "lantern", name: "Brass Lantern", type: "gear", rarity: "epic", price: 800, art: "lantern",
-      desc: "Lights up dark caves and shows hidden paths.",
-      stats: [["Light", 90], ["Duration", 72], ["Weight", 30]] },
+    { id: "shield", name: "Crystal Shield", type: "gear", rarity: "epic", price: 800, art: "i-shield",
+      desc: "Blocks heavy hits and glows when it does.",
+      stats: [["Defense", 90], ["Block", 74], ["Weight", 40]] },
     { id: "dagger", name: "Frost Dagger", type: "weapon", rarity: "rare", price: 300, art: "i-dagger",
       desc: "Quick strikes that slow enemies for a moment.",
       stats: [["Damage", 44], ["Speed", 96], ["Range", 28]] },
-    { id: "mystery", name: "Mystery Blade", type: "weapon", rarity: "locked", level: 20, art: "mystery",
+    { id: "mystery", name: "Mystery Blade", type: "weapon", rarity: "locked", level: 20, art: "i-greatsword", mystery: true,
       desc: "Reach level 20 to find out what this is.",
       stats: [["Damage", 0], ["Speed", 0], ["Range", 0]] },
   ];
@@ -48,15 +48,13 @@
     msg: document.getElementById("d-msg"),
   };
   let coins = 2450;
-  let selected = "ruby";
+  let selected = "inferno";
 
   const lockSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2zm2 0h6V8a3 3 0 0 0-6 0z"/></svg>';
 
   function artHTML(item) {
-    if (item.art === "sword") return '<img class="art-sword" src="sword.webp" alt="">';
-    if (item.art === "lantern") return '<img class="art-lantern" src="lantern.webp" alt="">';
-    if (item.art === "mystery") return '<img class="art-mystery" src="sword.webp" alt=""><span class="card__q t-stroke">?</span>';
-    return `<svg viewBox="0 0 64 64" aria-hidden="true"><use href="#${item.art}"/></svg>`;
+    const svg = `<svg viewBox="0 0 64 64" aria-hidden="true"${item.mystery ? ' class="art-mystery"' : ""}><use href="#${item.art}"/></svg>`;
+    return item.mystery ? svg + '<span class="card__q t-stroke">?</span>' : svg;
   }
   function chipHTML(item) {
     if (item.state === "equipped") return '<span class="chip chip--equipped">Equipped</span>';
@@ -100,13 +98,7 @@
     d.stage.style.setProperty("--glow", glow);
 
     d.img.className = "detail__img";
-    if (item.art === "sword" || item.art === "mystery") {
-      d.img.src = "sword.webp";
-      if (item.art === "mystery") d.img.classList.add("is-mystery");
-    } else if (item.art === "lantern") {
-      d.img.src = "lantern.webp";
-      d.img.classList.add("is-lantern");
-    } else {
+    {
       // turn the SVG symbol into an image for the big preview
       const sym = document.getElementById(item.art);
       const defs = document.querySelector("#ui svg defs");
@@ -114,6 +106,7 @@
       const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs>${grads}</defs>${sym.innerHTML}</svg>`;
       d.img.src = "data:image/svg+xml;charset=utf-8," + encodeURIComponent(svg);
       d.img.classList.add("is-svg");
+      if (item.mystery) d.img.classList.add("is-mystery");
     }
     if (animate && !reduce) { void d.img.offsetWidth; d.img.classList.add("is-swap"); }
 
