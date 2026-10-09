@@ -220,8 +220,8 @@ ul, ol { margin: 0; padding: 0; list-style: none; }
 /* the shine that runs up the blade, clipped to the sword's shape */
 .sword__glare {
   position: absolute; inset: 0; z-index: 3;
-  -webkit-mask: url("images/sword.webp") center / 100% 100% no-repeat;
-          mask: url("images/sword.webp") center / 100% 100% no-repeat;
+  -webkit-mask: url("sword.webp") center / 100% 100% no-repeat;
+          mask: url("sword.webp") center / 100% 100% no-repeat;
   background: linear-gradient(to top,
     transparent 0 38%, rgba(255,236,190,.35) 43%, #fff 48%, #fff 52%, rgba(255,236,190,.35) 57%, transparent 62% 100%);
   background-size: 100% 420%;

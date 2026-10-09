@@ -2,12 +2,12 @@
 // size: "wide" spans two columns, "tall" spans two rows (optional).
 // Only images that load are shown; the section stays hidden until one does.
 const BUILDS = [
-  { src: "images/build-1.jpg", title: "Cottage exterior", alt: "A white cottage with a front porch, flower boxes, lanterns and round trees under a blue sky." },
-  { src: "images/build-2.jpg", title: "Living room", alt: "A warm living room with a stone fireplace, red armchairs, a green sofa and large windows." },
-  { src: "images/build-3.jpg", title: "Longsword hilt", size: "tall", pos: "50% 35%", alt: "Close-up of a longsword hilt with a curved brass guard, leather grip and a ruby in the pommel." },
-  { src: "images/build-4.jpg", title: "Brass lantern", pos: "50% 40%", alt: "A tall black and brass lantern with a ring handle and a caged glass body." },
-  { src: "images/build-5.jpg", title: "Kitchen and dining", size: "wide", alt: "A kitchen with green cabinets, a marble island, bar stools and a wooden dining table." },
-  { src: "images/build-6.jpg", title: "Fireplace wall", size: "wide", alt: "A stone fireplace with a lit fire, a wooden mantel with a clock and a sword, between two windows." },
+  { src: "build-1.jpg", title: "Cottage exterior", alt: "A white cottage with a front porch, flower boxes, lanterns and round trees under a blue sky." },
+  { src: "build-2.jpg", title: "Living room", alt: "A warm living room with a stone fireplace, red armchairs, a green sofa and large windows." },
+  { src: "build-3.jpg", title: "Longsword hilt", size: "tall", pos: "50% 35%", alt: "Close-up of a longsword hilt with a curved brass guard, leather grip and a ruby in the pommel." },
+  { src: "build-4.jpg", title: "Brass lantern", pos: "50% 40%", alt: "A tall black and brass lantern with a ring handle and a caged glass body." },
+  { src: "build-5.jpg", title: "Kitchen and dining", size: "wide", alt: "A kitchen with green cabinets, a marble island, bar stools and a wooden dining table." },
+  { src: "build-6.jpg", title: "Fireplace wall", size: "wide", alt: "A stone fireplace with a lit fire, a wooden mantel with a clock and a sword, between two windows." },
 ];
 
 const DISCORD = "friedice_";

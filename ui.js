@@ -53,9 +53,9 @@
   const lockSvg = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 10V8a5 5 0 0 1 10 0v2h1a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2zm2 0h6V8a3 3 0 0 0-6 0z"/></svg>';
 
   function artHTML(item) {
-    if (item.art === "sword") return '<img class="art-sword" src="images/sword.webp" alt="">';
-    if (item.art === "lantern") return '<img class="art-lantern" src="images/lantern.webp" alt="">';
-    if (item.art === "mystery") return '<img class="art-mystery" src="images/sword.webp" alt=""><span class="card__q t-stroke">?</span>';
+    if (item.art === "sword") return '<img class="art-sword" src="sword.webp" alt="">';
+    if (item.art === "lantern") return '<img class="art-lantern" src="lantern.webp" alt="">';
+    if (item.art === "mystery") return '<img class="art-mystery" src="sword.webp" alt=""><span class="card__q t-stroke">?</span>';
     return `<svg viewBox="0 0 64 64" aria-hidden="true"><use href="#${item.art}"/></svg>`;
   }
   function chipHTML(item) {
@@ -101,10 +101,10 @@
 
     d.img.className = "detail__img";
     if (item.art === "sword" || item.art === "mystery") {
-      d.img.src = "images/sword.webp";
+      d.img.src = "sword.webp";
       if (item.art === "mystery") d.img.classList.add("is-mystery");
     } else if (item.art === "lantern") {
-      d.img.src = "images/lantern.webp";
+      d.img.src = "lantern.webp";
       d.img.classList.add("is-lantern");
     } else {
       // turn the SVG symbol into an image for the big preview
