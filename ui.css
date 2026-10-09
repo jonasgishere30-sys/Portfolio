@@ -153,7 +153,7 @@
 @keyframes cardShine { 0%, 55% { background-position: 130% 0; } 100% { background-position: -40% 0; } }
 
 .card__rar { font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; --sw: 1.5px; }
-.card__art { position: relative; min-height: 0; }
+.card__art { position: relative; min-height: 6.5rem; }
 .card__art > img, .card__art > svg { position: absolute; left: 50%; top: 50%; translate: -50% -50%; }
 .card__art img, .card__art svg { filter: drop-shadow(0 4px 0 rgba(13,16,36,.45)); transition: transform .3s cubic-bezier(.3,1.5,.5,1); }
 .card:hover .card__art img, .card:hover .card__art svg { transform: scale(1.08) rotate(-4deg); }
@@ -166,7 +166,7 @@
     drop-shadow(0 1.5px 0 var(--ink)) drop-shadow(0 -1.5px 0 var(--ink))
     drop-shadow(0 4px 0 rgba(13,16,36,.45));
 }
-.card__art > svg { width: auto; height: 118%; aspect-ratio: 1; }
+.card__art > svg { left: -9%; top: -9%; width: 118%; height: 118%; translate: none; overflow: visible; }
 .card__art .art-mystery { height: 150%; width: auto; max-width: none; rotate: 45deg; filter: brightness(0) drop-shadow(0 0 1px rgba(255,255,255,.25)); opacity: .9; }
 .card__q { position: absolute; left: 50%; top: 50%; translate: -50% -50%; font-size: 2.6rem; font-weight: 700; --sw: 3px; }
 .card__foot { display: flex; align-items: center; justify-content: space-between; gap: .4rem; }
@@ -417,7 +417,8 @@
   .shop__tabs { justify-self: stretch; }
   .tab { flex: 1; padding: .5rem .4rem; font-size: .95rem; }
   .shop__grid { grid-template-columns: repeat(2, 1fr); gap: .75rem; }
-  .card { aspect-ratio: 1 / 1.22; }
+  .card { aspect-ratio: auto; grid-template-rows: auto 6.5rem auto; }
+  .card__art { min-height: 0; height: 6.5rem; }
   .card__foot { flex-direction: column; align-items: flex-start; gap: .35rem; }
   .card__name { font-size: .95rem; }
   .detail { grid-template-columns: 1fr; }
@@ -430,6 +431,6 @@
 }
 
 /* drawn-icon versions of the mystery item and the badge */
-.card__art > svg.art-mystery { height: 118%; width: auto; rotate: 0deg; max-width: none; filter: brightness(0) drop-shadow(0 0 1px rgba(255,255,255,.35)); opacity: .9; }
+.card__art > svg.art-mystery { width: 118%; height: 118%; rotate: 0deg; max-width: none; filter: brightness(0) drop-shadow(0 0 1px rgba(255,255,255,.35)); opacity: .9; }
 .detail__img.is-svg.is-mystery { filter: brightness(0) drop-shadow(0 0 2px rgba(255,255,255,.45)); }
 .shop__badge svg { position: absolute; inset: 8%; width: 84%; height: 84%; filter: drop-shadow(0 2px 0 rgba(13,16,36,.4)); }
